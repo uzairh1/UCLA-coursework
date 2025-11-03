@@ -1,0 +1,12 @@
+# I had help from LA Pierce during office hours on 10/7.
+0 **x* -> W 0
+0 **W* -> X 1
+1 *x** -> E 1
+1 NEx* -> W 2
+2 xxxx -> N 0
+1 xExS -> N 3
+3 xxxx -> E 0
+1 NEWx -> S 4 # take to specific position
+4 xxxx -> S 4 # take to specific position
+4 xEWS -> X 0
+1 xEWS -> N 0

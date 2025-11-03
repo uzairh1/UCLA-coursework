@@ -1,0 +1,53 @@
+Uzair Hammad
+006445062
+
+
+a. 
+
+A few notable obstacles I overcame were accumulating values correctly for a *sequence* of numbers and letters, like "E1E1E1" or "E1M1S1". Another notable obstacle was not being able to use global variables and getting the latter functions to work without them.
+
+b. 
+
+For isValidRingString:
+I check whether the string is empty, whether the first letter is not an E, M, or S, and if the next character is not one in the set E, M, S, 0-9. If any of these are true for a given ring string, I return false. 
+
+Entering the first for loop, I set char c equal to ringstring.at(0) and ensure the next character is a digit (if not, I return false). Before entering the second for loop, I initialize a temp variable that will hold the values of eMinutes, sMinutes, and mMinutes as they accumulate. char c keeps track of the last letter seen and allows temp to be added to eMinutes, mMinutes, or sMinutes appropriately. Finally, I ensure none of eMinutes, mMinutes, or sMinutes exceeds 999.
+
+For the rest of the program:
+
+Similar logic to isValidRingString is implemented in the next three functions so they can return the number of exercise, stand, or move minutes. The last three functions use the values returned from totalMoveMinutes, totalStandMinutes, and totalExerciseMinutes and compare them against the provided goal.
+
+c. 
+
+isValidRingString("E5") - all kind values not present
+isValidRingString("E1E1E1") - a sequence of numbers and letters
+isValidRingString("baba") - invalid characters
+isValidRingString("E1000M1000S1") - values exceeding 999
+isValidRingString("E0") - total minutes 0
+isValidRingString("E00011") - leading zeros
+isValidRingString("E10S") - no value for standing minutes
+isValidRingString("         E6") - leading whitespace
+isValidRingString("E6           ") - trailing whitespace
+isValidRingString("E6 S6") - space between E6 and S6
+isValidRingString("") - empty string
+totalMoveMinutes("E1M1S1") - should return 1
+totalMoveMinutes("   E1M1S1") - invalid ring string
+totalExerciseMinutes("E1M1S1") - should return 1
+totalExerciseMinutes("   E1M1S1") - invalid ring string
+totalStandMinutes("E1M1S1") - should return 1
+totalStandMinutes("   E1M1S1") - invalid ring string
+metMoveGoal("E1M1S1", 1) - should return false
+metMoveGoal("E1M1S1", 0) - should return true
+metMoveGoal("   E1M1S1", 0) - invalid ring string - should return false
+metMoveGoal("E1M1S1", -1) - negative goal - should return false
+metStandGoal("E1M1S1", 1) - should return false
+metStandGoal("E1M1S1", 0) - should return true
+metStandGoal("   E1M1S1", 0) - invalid ring string - should return false
+metStandGoal("E1M1S1", -1) - negative goal - should return false
+metExerciseGoal("E1M1S1", 1) should return false
+metExerciseGoal("E1M1S1", 0) - should return true
+metExerciseGoal("   E1M1S1", 0) - invalid ring string - should return false
+metExerciseGoal("E1M1S1", -1) - negative goal - should return false
+
+NOTE: My code fails the test case assert(isValidRingString("M100E") == false).
+

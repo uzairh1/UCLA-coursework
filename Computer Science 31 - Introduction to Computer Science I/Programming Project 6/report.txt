@@ -1,0 +1,217 @@
+Uzair Hammad
+006445062
+
+- A brief description of notable obstacles you overcame
+-  A list of the test data that could be used to thoroughly test your functions, along with the reason for each test. You must note which test cases your program does not handle correctly. (This could happen if you didn't have time to write a complete solution, or if you ran out of time while still debugging a supposedly complete solution.) Notice that most of this portion of your report can be written just after you read the requirements in this specification, before you even start designing your program.
+
+1. A notable obstacle I overcame was having an infinite loop in my code that was not allowing my program to pass the tests on Gradescope. After redoing my solution from scratch, this problem has been resolved.
+
+2. 
+
+Die d;
+int value;
+bool answer;
+d.setValue( 6 );
+d.lock();
+d.setValue( 5 );
+assert( d.getValue() == 6 )
+
+The above is to test the lock function in class Die - that a Die's value cannot be reinitialized to something else after it has been locked.
+
+DieManager mgr;
+try
+{
+mgr.setValue( 100, 1 );
+assert( false );
+}
+catch (std::logic_error)
+{
+assert( true );
+}
+
+The above is to test the setValue function in class Die - that it throws a logic error when asked to initialize a die to a value outside of [1,6].
+
+
+DieManager mgr;
+try
+{
+mgr.isLocked( 100 );
+assert( false );
+}
+catch (std::logic_error)
+{
+assert( true );
+}
+
+The above is to test the isLocked function in class Die - that it throws a logic error when asked to see if an out of bounds Die is locked.
+
+
+DieManager mgr;
+try
+{
+mgr.getValue( 100 );
+assert( false );
+}
+catch (std::logic_error)
+{
+assert( true );
+}
+
+The above is to test the getValue function in class Die - that it throws a logic error when asked to get the value of an out of bounds Die.
+
+DieManager mgr;
+mgr.setValue(0, 3);
+mgr.setValue(2, 3);
+mgr.setValue(4, 3);
+assert( mgr.getValue(0) == 3 );
+assert( mgr.getValue(2) == 3 );
+assert( mgr.getValue(4) == 3 );
+
+The above is to test the getValue function in class DieManager. Dice indexed at 0, 2, and 4 have all been initialized to the value 3.
+
+DieManager mgr
+mgr.setValue(0, 3);
+mgr.setValue(2, 3);
+mgr.setValue(4, 3);
+assert( mgr.count(100) == 0 );
+assert( mgr.count(3) == 3 );
+
+The above is to test the count function in class DieManager - 3 Dice have the value 3.
+
+DieManager mgr
+mgr.setValue(0, 1);
+mgr.setValue(1, 2);
+mgr.setValue(2, 1);
+mgr.setValue(3, 2);
+mgr.setValue(4, 1);
+mgr.setValue(5, 2);
+mgr.setValue(6, 1);
+mgr.setValue(7, 2);
+mgr.setValue(8, 1);
+mgr.setValue(9, 2);
+assert( mgr.lock( 1 ) == 5 );
+assert( mgr.lock( 4 ) == 0 );
+assert( mgr.lock( 6 ) == 0 );
+assert( mgr.isLocked(0) );
+assert( !mgr.isLocked(1) );
+assert( mgr.isLocked(2) );
+assert( !mgr.isLocked(3) );
+assert( mgr.isLocked(4) );
+assert( !mgr.isLocked(5) );
+assert( mgr.isLocked(6) );
+assert( !mgr.isLocked(7) );
+assert( mgr.isLocked(8) );
+assert( !mgr.isLocked(9) );
+
+The above is to test the lock function in class DieManager, simulating actual gameplay with some dice locked as the game progresses and some not. This test also implicitly tests the isLocked and setValue functions in class DieManager.
+
+DieManager mgr;
+assert( mgr.getValue(0) == 0 );
+mgr.roll();
+assert( mgr.getValue(0) != 0 );
+
+The above is to test the roll function in class DieManager - that it properly assigns a value in [1,6] after being "rolled."
+
+Player p;
+p.setMatchValue(  12 );
+assert( p.getMatchValue() == 12 );
+assert( p.countMatchValue() == 0 );
+
+The above is to test the getMatchValue and countMatchValue functions in class Player. The setMatchValue function is implicitly tested.
+
+Player p;
+p.cheat( "3636366666" );
+mgr = p.getDieManager();
+assert( mgr.getValue(0) == 3 );
+assert( mgr.getValue(2) == 3 );
+assert( mgr.getValue(4) == 3 );
+assert( mgr.getValue(1) == 6 );
+assert( mgr.getValue(3) == 6 );
+assert( mgr.getValue(5) == 6 );
+assert( mgr.getValue(6) == 6 );
+assert( mgr.getValue(7) == 6 );
+assert( mgr.getValue(8) == 6 );
+assert( mgr.getValue(9) == 6 );
+
+The above is to test "cheating" behavior from a Player by passing in a string of ten digits. getDieManager() is implicitly tested.
+
+Player p;
+p.cheat( "3636366666" );
+p.setMatchValue( 3 );
+p.endTurn();
+mgr = p.getDieManager();
+assert( mgr.isLocked(0) );
+assert( !mgr.isLocked(1) );
+assert( mgr.isLocked(2) );
+assert( !mgr.isLocked(3) );
+assert( mgr.isLocked(4) );
+assert( !mgr.isLocked(5) );
+assert( !mgr.isLocked(6) );
+assert( !mgr.isLocked(7) );
+assert( !mgr.isLocked(8) );
+assert( !mgr.isLocked(9) );
+
+The above is to test the Player endTurn function - that Dice matching the match value are locked, while the others are not.
+
+Player player;
+assert( player.getMatchValue() == 0 );
+player.roll();
+mgr = player.getDieManager();
+assert( mgr.getValue(0) == 3 );
+assert( mgr.getValue(2) == 4 );
+assert( mgr.getValue(4) == 1 );
+assert( mgr.getValue(1) == 6 );
+assert( mgr.getValue(3) == 5 );
+assert( mgr.getValue(5) == 4 );
+assert( mgr.getValue(6) == 3 );
+assert( mgr.getValue(7) == 9 );
+assert( mgr.getValue(8) == 1 );
+assert( mgr.getValue(9) == 6 );
+
+The above tests the roll function in the Player class.
+
+Tenzy game;
+game.setHumanMatchValue( 5 );
+game.setComputerMatchValue( 5 );
+game.humanPlay( "1234512345" );
+game.humanEndTurn();
+game.computerPlay( "6666666666");
+game.computerEndTurn();
+game.humanPlay( "5555155551" );
+game.humanEndTurn();
+answer = ( game.isGameOver() );
+answer = answer && ( game.determineGameOutcome() == Tenzy::GAMEOUTCOME::HUMANWONGAME );
+
+The above is to test all facets of gameplay, resulting in the human winning. It tests the humanPlay, humanEndTurn, computerPlay, computerEndTurn, determineGameOutcome, and isGameOver functions explicitly.
+
+Tenzy game;
+game.setHumanMatchValue( 5 );
+game.setComputerMatchValue( 5 );
+game.humanPlay( "1234512345" );
+game.humanEndTurn();
+game.computerPlay( "5551555155");
+game.computerEndTurn();
+game.humanPlay( "5151151151" );
+game.humanEndTurn();
+game.computerPlay( "1115111511");
+game.computerEndTurn();
+assert( game.isGameOver() );
+assert( game.determineGameOutcome() == Tenzy::GAMEOUTCOME::COMPUTERWONGAME );
+
+The above is to test all facets of gameplay, resulting in the computer winning. It tests the humanPlay, humanEndTurn, computerPlay, computerEndTurn, determineGameOutcome, and isGameOver functions explicitly.
+
+Tenzy game;
+game.setHumanMatchValue( 5 );
+game.setComputerMatchValue( 5 );
+game.humanPlay( "1234512345" );
+game.humanEndTurn();
+game.computerPlay( "5551555155");
+game.computerEndTurn();
+game.humanPlay( "5151151151" );
+game.humanEndTurn();
+game.computerPlay( "6666666666");
+game.computerEndTurn();
+assert( !game.isGameOver() );
+assert( game.determineGameOutcome() == Tenzy::GAMEOUTCOME::GAMENOTOVER );
+
+The above is to test all facets of gameplay, resulting in an active game occurring. It tests the humanPlay, humanEndTurn, computerPlay, computerEndTurn, determineGameOutcome, and isGameOver functions explicitly. By now, we have tested all three values in the enumeration class Tenzy::GAMEOUTCOME, and they appear appropriately.

@@ -1,0 +1,67 @@
+Uzair Hammad
+006445062
+
+A brief description of notable obstacles you overcame.
+A list of the test data that could be used to thoroughly test your functions, along with the reason for each test. You must note which test cases your program does not handle correctly. (This could happen if you didn't have time to write a complete solution, or if you ran out of time while still debugging a supposedly complete solution.) Notice that most of this portion of your report can be written just after you read the requirements in this specification, before you even start designing your program.
+
+a. Some notable obstacles I overcame were:
+	1. Implementing hasThreeOfX - my implementation was originally much more complicated than necessary and was refactored into simpler, more accurate code.
+	2. Implementing replaceFirstAndLastOccurrences - I was stumped for quite a while about how to ensure I had found the true last occurrence of a character in a string. Looping backwards through the string with appropriate break statements (an idea from a friend) helped.
+	3. Implementing countFloatingPointValues - had logic error with counting the number of decimal point characters in a string.
+	4. Implementing rotateLeft - making sure all the values ended up in the correct places without new values overwriting old ones was difficult. I found the correct expressions to aid in this task after quite a bit of visual debugging. (Howard's hint of when the function should return false in the case of elements unmoved after rotation was helpful too.)
+	5. Implementing hasTwoOrMoreDuplicates - understanding how exactly my count variable was incrementing initially, and how it should actually increment to make intuitive sense and avoid redundancies
+	6. Implementing identicalValuesTogether - making the function return true when all array elements unique.
+
+b. 
+// I reference these arrays by name below.
+string folks[8]={"samwell", "jon", "margaery", "daenerys", "tyrion", "sansa", "magdalena", "jon"};
+string data[5] ={"12.35", "67", "mamaBbcc!", "mamaBbcc!", "mamaBbcc!"};
+string data1[1] = {"4..3"};
+
+findMaximum(folks, 4) - should return the largest item in the passed array
+findMaximum(folks, 0) - should return "" (n = 0)
+findMaximum(folks, -100) - should return "" (n < 0)
+countFloatingPointValues(data, 5)  - should return the number of floating point values in the passed array 
+countFloatingPointValues(data1, 1)  - should return the number of floating point values in the passed array (0, because strange number of decimal points)
+countFloatingPointValues(data, 0) - should return -1 (n = 0)
+countFloatingPointValues(data, -100) - should return -1 (n < 0)
+hasNoCapitals(data, 0) - should return true (n = 0)
+hasNoCapitals(data, -100) - should return true (n < 0)
+hasNoCapitals(data, 5) - should return false
+hasNoCapitals(folks, 8) - should return true
+identicalValuesTogether(folks, 0) - should return false (n = 0)
+identicalValuesTogether(folks, -100) - should return false (n < 0)
+identicalValuesTogether(folks, 8) - should return false
+identicalValuesTogether(data, 5) - should return true
+identicalValuesTogether(folks, 5) - should return true, no duplicates found at all that are next to each other
+hasTwoOrMoreDuplicates(folks, 0) - should return false (n = 0)
+hasTwoOrMoreDuplicates(folks, -100) - should return false (n < 0)
+hasTwoOrMoreDuplicates(folks, 8) - should return false
+hasTwoOrMoreDuplicates(data, 5) - should return true
+hasThreeOfX(data, 0, "mamaBbcc!") - should return false (n = 0)
+hasThreeOfX(data, -100, "mamaBbcc!") - should return false (n < 0)
+hasThreeOfX(data, 5, "mamaBbcc!") - should return true
+hasThreeOfX(folks, 8, "jon" ) - should return false
+rotateLeft(folks, 8, 1) - should return true
+rotateLeft(folks, 2, 12) - should return false because after all those desired rotations, the first two elements of the array folks ended up in their original opening positions.
+rotateLeft(folks, 0, 10) - should return false (n = 0)
+rotateLeft(folks, -10, 10) - should return false (n < 0)
+rotateLeft(folks, -10, 0) - should return false (amount < 1)
+replaceFirstAndLastOccurrences(folks, 8, 'A', 'Z')  - should return 0 since there are no 'A's in any of the elements.  
+replaceFirstAndLastOccurrences(folks, -10, 'A', 'Z') - should return -1 (n < 0)replaceFirstAndLastOccurrences(folks, 8, 'a', 'Z') - should return 8. 
+replaceFirstAndLastOccurrences(folks, 0, 'A', 'Z') - should return -1 (n = 0)
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+

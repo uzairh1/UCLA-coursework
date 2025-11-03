@@ -1,0 +1,13 @@
+0 **x* -> W 0 
+0 xxWx -> E 1 
+1 *x** -> E 1
+1 xExx -> N 0
+0 NxWx -> S 2
+2 xxWx -> S 2 
+2 xxWS -> X 0
+0 xxWS -> E 1
+1 xExS -> N 2
+2 xExx -> W 2
+2 xxxx -> W 3
+3 xxxx -> W 3
+3 xxWx -> N 0

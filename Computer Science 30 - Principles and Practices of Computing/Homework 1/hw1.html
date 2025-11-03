@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+lang="en"><head><title>Homework 1</title>
+</head>
+
+
+<body>
+
+<h1>Homework 1: Python and Picobot</h1>
+
+<h2>Due Thursday, October 10, at 11:30pm</h2>
+
+<h3>Turn in your homework via the Bruin Learn web page for our course as updated versions of the three files that I have provided:  <tt>hw1.py</tt>,
+<tt>pico1.txt</tt>, and <tt>pico2.txt</tt>.</h3>
+
+<p><i>There is a lot of information here; please read carefully!</i>
+
+<p>We will be grading your assignment in part automatically, with programs that run your functions on many different inputs and check the results.  Computers are efficient but they are also very <i>picky</i>.  <b>Make sure to follow all of these rules, or else your homework will not be able to be fully graded and you will get a 0 for all or part of it</b>:
+
+<ul>
+
+<li>Use <i>exactly</i> the three file names mentioned above for the files that you turn in. If you resubmit a file (which is allowed) then the file will be renamed; that is fine. <b>Also note: If you resubmit a file then you should resubmit all three files, or else BruinLearn will think that your submission is incomplete.</b></li>
+
+<li>The Python file that you turn in must be able to be loaded (using the Run Module menu item) in the Python playground without any errors.</li>
+
+<li>Each Python function must have <i>exactly</i> the name used below, and note that names are case-sensitive (lowercase letters are not considered the same as uppercase letters).</li>
+
+<li>Each of your Picobot code files must be able to be copied <i>in its entirety</i> into the Picobot Rules window and executed without any errors.</li>
+
+<li>All three files that you turn in should be <i>text files</i>, created and edited with a program like IDLE or TextEdit or Notepad. They should not be PDF files, Microsoft Word files, Powerpoint files, etc.  Ask if you're not sure.
+
+</ul>
+
+<b>Testing is critical.</b> You should test your Python code on many different examples, to make sure that it works as you intend. On Monday in class we will see an easy way to write tests that you can save and easily run, avoiding the need to manually do testing in the playground (as we've been doing so far).
+
+<h3>Recall the CS30 Academic Honesty Policy!  You must list whom you
+discussed the assignment with at the top of your assignment, and also what
+other resources you used.  You can list that as a comment at the top of the <tt>hw1.py</tt> file.</h3>
+
+<p>
+Now on to the assignment!
+
+<h3>Problem #1:  Python Functions</h3>
+
+In this problem you will implement several Python functions. I've provided the <tt>hw1.py</tt> file to get you started, but there isn't much there!  <i>Do not use any language features of Python that have not been covered in class.  Do not use any Python libraries other than the <tt>math</tt> library.</i>
+
+<ol type="a">
+
+<li>Implement a function <tt>totalSeconds</tt> that takes 3 integers, in order representing a number of seconds, minutes, and hours.  The function should return the total number of seconds that this represents.  For example, <tt>totalSeconds(3,2,1)</tt> evaluates to <tt>3723</tt>.  Currently the <tt>hw1.py</tt> file contains an implementation of this function but it just returns <tt>0</tt> -- you should edit it to do the right thing.<p></li>
+
+<li>Implement a function <tt>money</tt> that takes a bank account balance (a number), an interest rate percentage per year (a number), and a number of years (a nonnegative integer).  The function should return the amount of money that is in the bank account after the given number of years.  You should assume that the interest is <i>compounded</i>, as is standard in most banks: the interest for one year becomes part of the principal and so itself accrues interest in future years. Also, you should round the final result to the nearest cent using Python's <tt>round</tt> function.  For example, <tt>money(100, 7, 2)</tt> returns <tt>114.49</tt>. <i>Note: Do not do any rounding until the very end.</i> <p></p></li>
+
+<li>Implement a function <tt>distanceFromNearestSquare</tt> that takes a positive integer as an argument and returns its distance from the nearest integer (either above or below it) that is a square.  For example, <tt>distanceFromNearestSquare(13)</tt> returns <tt>3</tt> since 13 is 3 away from 16, which is a square.  <i>Hint: Python's <tt>math</tt> library will be useful.  Also recall the built-in <tt>min</tt> function, which returns the minimum of its argument numbers.</i><p></p></li>
+
+<li>Implement a function <tt>isPrefix</tt> that takes two strings and returns <tt>True</tt> if either one of them is a prefix of the other, and <tt>False</tt> otherwise.  For example, <tt>isPrefix('hel', 'hello')</tt> returns <tt>True</tt>, and so do <tt>isPrefix('hello', 'hel')</tt> and <tt>isPrefix('hello', 'hello')</tt>.  <i>Hint: The built-in <tt>min</tt> and <tt>len</tt> functions will be useful, as will the slicing operation for strings and the <tt>==</tt> operator for testing equality.</i><p></li>
+
+<li>Implement a function <tt>fromTotalSeconds</tt> that takes an integer argument representing a number of seconds and returns a list containing the corresponding number of seconds, minutes, and hours (in that order).  The number of seconds in the result should always be less than 60, and similarly for the number of minutes.  For example, <tt>fromTotalSeconds(3723)</tt> returns <tt>[3, 2, 1]</tt>.  <i>Hint: The modulus operator <tt>%</tt> will be useful, and so will the integer division operator <tt>//</tt>, which performs division but only returns the integer part of the result.</i>
+
+</ol>
+
+<h3>Problem #2:  Picobot</h3>
+
+<b>Note: Your Picobot programs should work no matter where the robot starts.  So make sure to test your programs starting from all sides and corners.  You can use the Teleport Robot buttons on the bottom left of the Picobot playground to do that easily. We will be testing all of these starting points as part of our grading.</b>
+
+<p>
+The Picobot playground is <a href="https://www.cs.hmc.edu/picobot/">here</a>.
+
+<ol type="a">
+<li> Write a Picobot program (i.e., a set of rules) that will cause the robot to traverse every cell in the rectangular world. <i>Advice: Break the overall goal down into smaller tasks. Then write your rules incrementally to solve these tasks one by one.  That is, write a few rules.  See what they do.  Then add new rules or modify the rules to either help address the current task or to move on to the next task.  Continue in this way until you have a full solution.</i>  
+
+<p>Copy and paste your rules to the file named <tt>pico1.txt</tt>.  You can use IDLE to edit and save this file, or you can use any other <a href="https://en.wikipedia.org/wiki/Text_editor">text editor</a> that you are comfortable with (<i>note that Microsoft Word is not a text editor, because it does not save its files in plain-text format</i>).  <b>Make sure that the file contains only your rules</b>;  comments (lines starting with <tt>#</tt>) are ok, but nothing else should be there.  In particular, copying and pasting the entire contents of this file back into the Picobot Rules window should result in a valid solution to the problem.  <b>Try doing that and make sure it works!</b><p></li>
+
+<li>Press the <tt>&#45;&#45;&gt;</tt> button to the right of the word MAP on the Picobot webpage two times, and you will see a diamond-like world.  Write a Picobot program that will cause the robot to traverse every cell in this world, from any starting point.
+Copy and paste your rules to the file named <tt>pico2.txt</tt>.  Again, make sure that copying and pasting the entire contents of this file back into the Picobot Rules window results in a valid solution to the problem.<p></li>
+
+<li><i>Optional challenge problem (just for you, no need to turn it in)</i>: Try to solve the first Picobot problem above in as few rules as possible.  How many rules do you need?  Same question for the second Picobot problem above.</li>
+</ol>
+
+
+</body></html>

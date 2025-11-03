@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+lang="en"><head><title>Homework 2</title>
+</head>
+
+
+<body>
+
+<h1>Homework 2</h1>
+
+<h2>Due Thursday, October 17, at 11:30pm</h2>
+
+<h3>Turn in your homework via the course web page as an updated version of the file <tt>hw2.py</tt> that I have provided.</h3>
+
+<p>Make sure to follow the same rules that we had on the first homework.  For example your filename should be called <i>exactly</i> <tt>hw2.py</tt> and your function names should have the exact same names as shown below.  Writing and running tests (see <tt>hw2test.py</tt>) will go a long way toward identifying these errors, and will also help you to ensure that your code does what you intend.
+
+<h3>Recall the CS30 Academic Honesty Policy!  You must list whom you
+discussed the assignment with at the top of your assignment, and also what
+other resources you used.  You can list that as a comment at the top of the <tt>hw2.py</tt> file.</h3>
+
+In this assignment you'll get practice with <tt>if</tt> statements and recursion in Python.  The file <tt>hw2.py</tt> is essentially empty.  Your job is to implement the functions described below in that file.  The <tt>hw2test.py</tt> file contains test functions for each of the functions that you have to write, but you should add more tests to each of the test functions, to gain more confidence in your code.
+
+<p>
+Now on to the assignment!
+
+<h3>Problem #1:  Miscellaneous Functions</h3>
+
+<ol type="a">
+
+<li>Implement the function <tt>fizzBuzz</tt>, which represents a player for the game <a href="https://en.wikipedia.org/wiki/Fizz_buzz">fizz buzz</a>.  Given a positive integer <tt>n</tt>, the function should return a string.  Specifically, <tt>fizzBuzz(n)</tt> returns 
+'fizz' if <tt>n</tt> is divisible by 3, 'buzz' if <tt>n</tt> is divisible by 5, 'fizz buzz' if <tt>n</tt> is divisible by both 3 and 5, and otherwise the function returns the number <tt>n</tt> itself, but as a string.  <i>Note: You can use Python's <tt>str</tt> function to convert a number into a string.</i> <b>Make sure to return exactly these strings; for example 'Fizz' is not the same as 'fizz'!</b>
+	<p></li>
+
+
+<li>On the first day of class we implemented a function that takes the year of someone's birth and returns their age. In this problem you will implement a more specific version of that.  Your function, called <tt>age</tt>, should take three arguments (in this order): the day, month, and year of someone's birth, all represented as integers.  The function should then return the age (an integer) that this person will be on the date that the homework assignment is due, October 17, 2024.  For example, <tt>age(22, 9, 2005)</tt> returns <tt>19</tt> but <tt>age(22, 10, 2005)</tt> returns <tt>18</tt>.
+<p></li>
+
+<li> Implement a function <tt>countPos</tt> that accepts an integer list <tt>l</tt> of any length and returns the number of elements of the list that are positive.  For example, <tt>countPos([1, -4, 0, 4, 8, 0])</tt> returns <tt>3</tt>.<p></li>
+
+<li>
+Implement a function <tt>threshold</tt> that takes a list <tt>l</tt> of numbers and a number <tt>n</tt> and returns a new list that is identical to <tt>l</tt> but with all numbers that are less than <tt>n</tt> replaced by <tt>n</tt>.  For example, <tt>threshold([1, -4, 0, 4, 8], 1)</tt> returns <tt>[1, 1, 1, 4, 8]</tt>.  As in the previous problem, the given list can be of any length.<p></li>
+
+<li> Implement a function <tt>intRange</tt> that takes two integers <tt>low</tt> and <tt>high</tt> and returns an ordered list of all integers that are greater than or equal to <tt>low</tt> and less than <tt>high</tt>.  For example, <tt>intRange(2, 5)</tt> returns <tt>[2,3,4]</tt> and <tt>intRange(3, 2)</tt> returns <tt>[]</tt>.  <i>You may not use the built-in <tt>range</tt> function.</i><p></p></li>
+
+<li> Implement a function <tt>innerLists</tt> that takes a list <tt>l</tt> of integers and returns a list of lists, where each element <tt>e</tt> of the original list <tt>l</tt> is replaced by the the list <tt>[1,...,e]</tt>. For example, <tt>innerLists([2, 5, 0, 1])</tt> returns <tt>[[1,2], [1,2,3,4,5], [], [1]]</tt>.  <i>Hint: Make use of the <tt>intRange</tt> function that you defined in the previous problem. Again, you may not use the built-in <tt>range</tt> function.</i><p></p></li>
+</ol>
+
+<h3>Problem #2:  Recursive Art</h3>
+
+<a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle graphics</a> is a simple, fun, and powerful way to write programs that draw interesting things.  A program simply commands a turtle to move around a canvas, and the path of the turtle determines what is drawn.  Python has a library called <tt>turtle</tt> that supports turtle graphics.  You can see its documentation <a href="https://docs.python.org/3.12/library/turtle.html">here</a>.   I've already imported this library for you at the top of <tt>hw2.py</tt>.
+
+<p>We will get some practice with the <tt>turtle</tt> library in class on Monday, October 14. There are lots of functions in the <tt>turtle</tt> library, but we will only be using two of them.  The function  <tt>turtle.forward(d)</tt> moves the turtle forward for distance <tt>d</tt> (a number), and the function <tt>turtle.left(a)</tt> turns the turtle left by <tt>a</tt> degrees.  <b>You may not use any other functions from the <tt>turtle</tt> library!</b>  
+
+<p>
+For this assignment you will implement three functions that use the <tt>turtle</tt> library to draw things.  <i>Note: the <tt>turtle</tt> functions are unusual in that they don't actually return anything; rather, they just have the effect of drawing on a canvas.  Your functions will also not return anything, so our usual recursion recipe doesn't quite apply.  Instead, in the recursive case of your functions you'll typically want to first use the <tt>turtle</tt> functions to draw on the canvas and then make a recursive call in order to draw the rest of the picture.</i>
+
+<p>
+A few more notes:
+
+<ul>
+<li> Though your functions don't return anything, they should not run forever.  That is, when one of your functions is called, eventually the turtle should stop moving and be done drawing the picture.</li>
+<li>If you want to end a function without returning anything, just use the statement <tt>return</tt> without providing any value to return.</li>
+</ul>
+	
+Now on to the problems that you should solve:
+
+<ol type="a">
+
+<li>A <i>regular polygon</i> is a polygon where all sides have equal length and all angles have equal measure.  Write a function <tt>regularNGon</tt> that takes a positive integer <tt>n</tt> and a positive number (which need not be an integer) <tt>sideLength</tt> and draws a regular <tt>n</tt>-gon where each side has length <tt>sideLength</tt>.  The drawing should start by creating the bottom side of the polygon, from left to right, and proceed counter-clockwise.  <i>Hint: You will need to define another function that <tt>regularNGon</tt> calls and that does most of the work.  That function should take three arguments:  the number of sides left to draw, the length to draw each side, and the angle that should be used when turning left.</i>
+
+<p>For example, <tt>regularNGon(8, 100)</tt> produces the following shape:
+
+	<p><img src="http://www.cs.ucla.edu/~todd/cs97/octagon.png" width=300>
+<p></p></li>
+
+<li>Write a function <tt>archSpiral</tt> that draws an <a href="https://en.wikipedia.org/wiki/Archimedean_spiral">Archimedean spiral</a> counter-clockwise, from the inside out.  The function takes four positive numbers, <tt>length</tt>, <tt>increment</tt>, <tt>angle</tt>, and <tt>n</tt>, where <tt>n</tt> must be an integer.  Conceptually, the spiral should be drawn by doing the following sequence <tt>n</tt> times:  1) Draw a line segment of length <tt>length</tt>.  2) Turn left by <tt>angle</tt> degrees.  3) Increase <tt>length</tt> by <tt>increment</tt>.  Of course, this should be implemented as a recursive function.
+
+<p>
+	For example, <tt>archSpiral(1, 0.5, 30, 100)</tt> produces the following shape:
+
+	<p><img src="http://www.cs.ucla.edu/~todd/cs97/archSpiral.png" width=300>
+<p></p></li>
+
+<li>Write a function <tt>logSpiral</tt> that draws a <a href="https://en.wikipedia.org/wiki/Logarithmic_spiral">logarithmic spiral</a> counter-clockwise, from the inside out.  The function takes four positive numbers, <tt>length</tt>, <tt>percentIncrease</tt>, <tt>angle</tt>, and <tt>n</tt>, where <tt>n</tt> must be an integer.  The only difference from the Archimedean spiral above is that at each iteration, the value of <tt>length</tt> should be increased by the percentage specified in <tt>percentIncrease</tt> (note that this number is a percentage; for example <tt>4</tt> in the example below means a 4% increase).
+
+<p>For example, <tt>logSpiral(1, 4, 30, 120)</tt> produces the following shape:
+
+	<p><img src="http://www.cs.ucla.edu/~todd/cs97/logSpiral.png" width=300>
+
+
+<li><i>Optional problem (just for you, no need to turn it in)</i>: Predict what will happen if you run <tt>regularNGon(3.14, 100)</tt>.  Now run it.  Was your prediction correct?  If not, figure out why it behaves as it does.<p></li>
+
+<li><i>Optional problem (just for you, no need to turn it in)</i>: Use the <tt>turtle</tt> library to create something.  For example, draw your initials.  Or draw a face.  Or create something else entirely!  Experiment with various <tt>turtle</tt> functions to make different shapes, colors, etc.  If you're willing to, please share it with the class on Campuswire!</li>
+
+</ol>
+
+</body></html>

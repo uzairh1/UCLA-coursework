@@ -1,0 +1,149 @@
+1. 
+
+My linked list is a simple doubly-linked list; just next and prev pointers -- no dummy nodes or circularity to report. Insert inserts elements in the set at the front.
+
+2. 
+
+excludeInclude:
+
+Create new set (empty) to overwrite whatever is in result
+Repeatedly:
+	Use get to get all the elements of set s1
+	Check if element qualifies for insertion - it is unique to a set and 
+	not already in result
+Return empty
+
+Unite uses the same logic - the uniqueness condition for qualification in result is not enforced there, however.
+
+get:
+
+If valid input:
+	While we haven't reached the end of the list:
+		Compare the current node's value against every other node for "greater than"
+		Keep track of how many elements current node is greater than
+If count is equal to pos:
+	Overwrite value
+Else:
+	Advance current; repeat		
+
+
+
+// Uzair (me), Hammad (dad), Shozab (mom) -- this is my family :)
+	 
+   Set s;  // some elements, activity at the front/middle
+
+   assert(s.empty());  // test empty
+   assert(s.insert("Uzair")); // insertion at the front
+   assert(s.size() == 1); // test size
+   assert(s.contains("Uzair")); // test contains
+   assert(s.insert("Hammad")); // insertion in the middle
+   assert(s.insert("Shozab")); // insertion "at the end"
+   assert(s.erase("Uzair")); // erasure at the front
+   assert(!s.contains("Uzair")); // oh no, Uzair went off to college...
+
+   Set s2; // empty set
+   
+   assert(s2.empty());
+   assert(s2.size() == 0);
+   assert(!s2.contains("Uzair"));
+   assert(!s2.erase("Uzair"));
+   assert(s2.insert("Uzair"));
+   assert(s2.size() == 1);
+
+   
+   Set s3; // one element set
+
+   assert(s3.empty());
+   assert(s3.size() == 0);
+   assert(s3.insert("Uzair"));
+   assert(s3.size() == 1);
+   assert(s3.erase("Uzair"));
+   assert(!s3.contains("Uzair"));
+   assert(!s3.erase("Uzair"));
+  
+
+
+   Set s4;  // some elements
+
+   assert(s4.empty());
+   assert(s4.insert("Uzair"));
+   assert(s4.size() == 1);
+   assert(s4.contains("Uzair"));
+   assert(s4.insert("Hammad"));
+   assert(s4.insert("Shozab"));
+   assert(s4.erase("Hammad")); // erasure in the middle
+   assert(!s4.contains("Hammad")); 
+
+
+   Set s5;  // some elements
+
+   assert(s5.empty());
+   assert(s5.insert("Uzair"));
+   assert(s5.size() == 1);
+   assert(s5.contains("Uzair"));
+   assert(s5.insert("Hammad"));
+   assert(s5.insert("Shozab"));
+   assert(s5.erase("Shozab")); // erasure in the end
+   assert(!s5.contains("Shozab"));
+
+   Set s6 = s; // test of assignment operator (and implicitly, copy constructor and swap function) with list of multiple items
+   assert(s6.contains("Shozab") && s6.contains("Hammad"));
+
+   Set s7 = s2; // test of assignment operator (and implicitly, copy constructor and swap function) with single element list
+   assert(s7.contains("Uzair"));
+
+   Set s8;
+
+   Set s9 = s8; // test of assignment operator (and implicitly, copy constructor and swap function) with empty list
+   assert(s9.empty());
+
+
+
+ItemType x;
+	assert(s.get(0, x) == true && x == "Hammad"); // test of get function
+	assert(s.get(1, x) == true && x == "Shozab");
+
+   // tests for type std::string above
+
+  
+
+	Set int1;
+	int1.insert(2);
+	int1.insert(8);
+	int1.insert(3);
+	int1.insert(9);
+	int1.insert(5);
+
+
+	Set int2;
+	int2.insert(6);
+	int1.insert(3);
+	int1.insert(8);
+	int1.insert(5);
+	int1.insert(10);
+
+	Set result;
+	result.insert(1);
+	result.insert(2);
+	result.insert(3);
+
+	unite(int1, int2, result); // test unite
+	assert(result.contains(9));
+	assert(result.contains(3));
+	assert(result.contains(6));
+	assert(result.contains(5));
+	assert(result.contains(10));
+	assert(result.contains(2));
+	assert(result.contains(8));
+
+
+	excludeInclude(int1, int2, result); // test excludeInclude
+	assert(result.contains(10));
+	assert(result.contains(6));
+
+	*/
+
+	// tests for type int above
+
+
+

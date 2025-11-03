@@ -1,0 +1,15 @@
+1e. Test case 3 fails as vector v2's iterator is invalidated during the push_back operation triggered when k is equal to 2. In test case 1, no iterators are involved so this issue is not relevant. In test case 2, a list is being used. A list's iterators, however, do not become invalidated as its capacity changes.
+
+3. The == operator, which Set::insert uses (since Set implements a container which orders its items) is not defined for two Coords.
+
+4b. We would have no way to build up the path for each MenuItem.
+
+5a. O(N^3). The first for loop runs a maximum of N times. The second for loop (inside the first for loop) runs a maximum of N times. The third for loop (inside the second for loop) runs a maximum N times. Everything else is a constant time operation.
+
+5b. O(N^2 * i). The first for loop runs a maximum of N times. The second for loop (inside the first for loop) runs a maximum of i times. The third for loop (inside the second for loop) runs a maximum N times. Everything else is a constant time operation.
+
+6a. In the worst case (i.e., result is a distinct set), get walks through s2 at cost O(N), and insert walks through the result at cost O(N). These two operations (at cost 2N) happen N times. So the time complexity of this algorithm is O(N^2).
+
+6b. Copying all items into v, in the worst case, is an O(N) operation. Deleting result nodes is an O(N) operation -- a constant time operation being done N times. Copying unique items into v, in the worst case, is an O(N) operation. Destructing v is an O(n) operation. So the time complexity of this algorithm is O(N log N) (O(N log N) sort dominates all other linear terms.)
+
+6c. O(N). This algorithm walks through both sets at cost O(N), and the second for loop carries out a constant time operation N times.

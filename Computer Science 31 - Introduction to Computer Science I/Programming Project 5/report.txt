@@ -1,0 +1,91 @@
+Uzair Hammad
+006445062
+
+1. I overcame three obstacles while developing this solution. First, I had to remember to use std::string while working on my header files rather than simply string (since it is bad form to include using directives in header files, I did not include one for the standard namespace). Second, I inadvertently left off a & before CostcoMember in the declaration and definition of my functions, leading to unintended behavior. Finally, I realized I was clearing out the purchase total in the function issueReward before the reward even had a chance to be calculated using that member's purchase total. Fortunately, swapping the order of these statements did the trick.
+
+2.
+// Assuming the following lines of code exist...
+CostcoMember dad("Hammad", "11111", CostcoMember::Kind::EXECUTIVE) // this is my dad, a bona-fide Costco executive member :)
+costcoMember mom("Shozab", "22222", CostcoMember::Kind::BUSINESS) // this is my mom
+costcoMember me("Uzair", "33333", CostcoMember::Kind::EXECUTIVE) // we are a happy family :)
+
+The above three lines will check to make sure the constructor to create an object of CostcoMember type is working properly.
+
+assert(dad.getName() == "Hammad");
+assert(dad.getNumber() == "11111");
+assert(dad.getKind() == CostcoMember::Kind::EXECUTIVE);
+assert(dad.getTripCount() == 0);
+assert(std::to_string(dad.getPurchaseTotal()) == "0.000000");
+
+The above five asserts test the main getters of the CostcoMember class, making sure everything is initialized appropriately.
+
+CostcoWarehouse homeStore("Albuquerque", 123) // Albuquerque, NM is my hometown.
+
+The above line will check to make sure the constructor to create an object of CostcoWarehouse type is working properly.
+
+assert(warehouse.getLocation() == "Albuquerque");
+assert(warehouse.getNumber() == 123);
+
+The above two asserts test the main getters of the CostcoWarehouse class.
+
+warehouse.shopForStuff(dad, 100);
+assert(std::to_string(dad.getPurchaseTotal()) == "100.000000"); 
+assert(dad.getTripCount() == 1);
+
+The above three lines serve to test the shopForStuff function, ensuring it both correctly increments the purchaseTotal and tripCount variables.
+
+warehouse.returnStuff(dad, 100);
+assert(std::to_string(dad.getPurchaseTotal()) == "0.000000");
+assert(dad.getTripCount() == 1);
+
+The above three lines serve to test the returnStuff function, ensuring it both correctly decrements the purchaseTotal variable and does NOT change the tripCount variable.
+
+assert(std::to_string(warehouse.calculateReward(dad)) == "2.000000");
+assert(std::to_string(warehouse.issueReward(dad)) == "2.000000"); 
+assert(std::to_string(dad.getPurchaseTotal()) == "0.000000");
+assert(dad.getTripCount() == 1);
+
+The above four lines serve to test the calculate and issueReward functions, ensuring they return the correct amount of reward money accrued, do NOT change the tripCount variable, and clear the purchaseTotal variable.
+
+warehouse.shopForStuff(mom, 200);
+assert(std::to_string(warehouse.calculateReward(mom)) == "0.000000");
+assert(std::to_string(warehouse.issueReward(mom)) == "0.000000"); 
+assert(std::to_string(dad.getPurchaseTotal()) == "200.000000");
+assert(dad.getTripCount() == 1);
+
+The above five lines serve to test the calculate and issueReward functions, ensuring they return the correct amount of reward money accrued for executive members ONLY, do NOT change the tripCount variable, and clear the purchaseTotal variable only for executive members. If my mom was a GOLDSTAR member, the above asserts should still pass.
+
+warehouse.shopForStuff(me, 0); // guess I'm poor and have no money...
+assert(std::to_string(warehouse.calculateReward(me)) == "0.000000");
+assert(std::to_string(warehouse.issueReward(me)) == "0.000000"); 
+assert(std::to_string(me.getPurchaseTotal()) == "0.000000");
+assert(me.getTripCount() == 1);
+
+The above five lines serve to test the calculate and issueReward functions, ensuring they return the correct amount of reward money accrued, do NOT change the tripCount variable, and clear the purchaseTotal variable only for executive members if the reward is greater than 0 (I know this is a strange example, with the cleared purchase total being equal to the actual purchase total, but I believe this would be one of the few (if only) cases where this condition is triggered). 
+
+Most of the above asserts implicitly tested the functions incrementTripCount, clearTripCount, incrementPurchaseTotal, decrementPurchaseTotal, and clearPurchaseTotal in their execution.
+
+However, to be certain in the code's efficacy, here are some lines of code that test each of the above individually.
+
+// for incrementTripCount, clearTripCount
+
+CostcoMember t( "Triton", "12346", CostcoMember::Kind::GOLDSTAR ); 
+assert( t.getTripCount() == 0 );
+t.incrementTripCount();
+assert(t.getTripCount() == 1 );
+t.incrementTripCount();
+assert( t.getTripCount() == 2 );
+t.clearTripCount();
+assert( t.getTripCount() == 0 );
+
+// for incrementPurchaseTotal, decrementPurchaseTotal, clearPurchaseTotal
+
+CostcoMember m( "Mustang", "12347", CostcoMember::Kind::GOLDSTAR );
+assert( std::to_string( m.getPurchaseTotal() ) == "0.000000" );
+m.incrementPurchaseTotal( 50.0 );
+assert( std::to_string( m.getPurchaseTotal() ) == "50.000000" );
+m.decrementPurchaseTotal( 5.0 );
+assert( std::to_string( m.getPurchaseTotal() ) == "45.000000" );
+m.clearPurchaseTotal();
+assert( std::to_string( m.getPurchaseTotal() ) == "0.000000" );
+

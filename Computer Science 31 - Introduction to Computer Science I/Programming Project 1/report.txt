@@ -1,0 +1,8 @@
+Uzair Hammad
+006445062
+
+The input I provided in step 5 that produced nonsensical results was entering 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 as the number of hours I spent on social media today. Instead of proceeding to ask me how much time I spent on Facebook, TikTok, and Instagram and then waiting for my response, the three questions all appeared one after another without the usual line breaks even though I hadn't responded to them yet. "Wow   That's alot!" appeared at the end of the chain of questions. "Something went awry..." was displayed as the last line of output.
+
+The error I introduced into logic_error.cpp was changing the 0 in the line if (totalHours == 0) to 1, which means that the message "Wow!   None!" would only display erroneously if the value of the variable totalHours was equal to 1, instead of 0 (for no hours spent on social media).
+
+One error I introduced into compile_error.cpp was commenting out the variable declarations for totalHours, instagramHours, facebookHours, and tiktokHours. 10 errors occurred with error code C2065 and message "undeclared identifier." 4 errors occurred with error code E0020 complaining about "undefined" variables. The second error I introduced was "forgetting" a semicolon after endl. One error occurred with code E0065 that said "expected a ';'", and another error with code C2143 saying "syntax error: missing ';' before '}'."

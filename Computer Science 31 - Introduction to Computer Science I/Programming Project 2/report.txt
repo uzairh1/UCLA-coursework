@@ -1,0 +1,20 @@
+Uzair Hammad
+006445062
+
+1. One obstacle I overcame was getting error messages to output with truly erroneous input. After changing the guard of various if statements, the error messages outputted in the correct situations. Second, I accidentally applied the $4 surcharge on takeout orders before realizing my mistake. Third, I changed the guard of some if statements to ensure that a person ordering gets charged either the cost for a normal amount of topping or the cost for extra topping (but not both). Finally, after not incrementally building my first solution, I threw it out after finding it was difficult to debug and recreated a new solution incrementally.
+
+2.
+A negative amount of pizza ordered (to issue the "how many value" error)
+A size value that is not exactly either "Small", "Medium", or "Large" or otherwise incorrectly capitalized size value (to issue the "size value" error)
+A topping that is not exactly either "Mushroom", "Cheese", or "Pepperoni" or otherwise incorrectly capitalized topping value (to issue the "topping value" error)
+An extra topping value that is not exactly either "Yes" or "No" or otherwise incorrectly capitalized extra topping value (to issue the "extra topping" error)
+A delivery value that is not exactly either "Delivery" or "Takeout" or otherwise incorrectly capitalized where value (to issue the "where value" error)
+A small cheese pizza without extra topping ordered for delivery (to ensure that the condition of a $4 surcharge is placed on delivery orders under $30.) (In a similar vein, if this was a takeout order, the cost should be $4 to check the condition that takeout is free.)
+4 large pepperoni pizzas with extra topping ordered for delivery (to ensure that the condition of a $4 surcharge is NOT placed on delivery orders greater than or equal to $30.) (In a similar vein, if this was a takeout order, the cost should still be the same to check the condition that takeout is free.)
+A small (or medium, or large) pizza with extra cheese topping ordered for takeout (to check the condition that extra cheese topping does NOT cost double the normal topping cost for that size.) 
+A small (or medium, or large) pizza with extra pepperoni (or mushroom) topping ordered for takeout (to check the condition that extra pepperoni (or mushroom) topping does cost double the normal topping cost for that size.)
+A small (or medium, or large) pizza without extra cheese topping ordered for takeout (to check the condition that a normal amount of cheese topping does NOT increase the cost of the order.)
+A small (or medium, or large) pizza without extra pepperoni (or mushroom) topping ordered for takeout (to check the condition that a normal amount of topping only increases the order cost by the topping value for that specific topping.)
+A small pizza with (or without) extra cheese topping for takeout (to check that a small pizza with essentially no extras costs $4.)
+A medium pizza with (or without) extra cheese topping for takeout (to check that a medium pizza with essentially no extras costs $6.)
+A large pizza with (or without) extra cheese topping for takeout (to check that a large pizza with essentially no extras costs $8.)
