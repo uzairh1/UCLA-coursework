@@ -1,0 +1,26 @@
+Scrape X posts abt. Eaton/Palisades fires -- NLP processing
+-- need timestamps
+Old Jupyter ntebook code from Twitter times
+Different timelines by type of fire
+Detection time -- how long did it take to detect (start of fire ---> notification/X/news/etc)
+Preparation time -- how long did it take for them to prepare people to leave
+Evacuation time -- how long does it take to evacuate
+API of X is partly free, full access is not...
+Need tweets from only days of fire and 1-2 days after
+Research X API -- start from the free version
+	If we can filter out to the posts we are interested in, $200/mo. rate is fine
+------------------------------------------------------------------------------------------------------
+10/25: UH X bearer token: AAAAAAAAAAAAAAAAAAAAAJYd5AEAAAAAW4cGw%2FOVowZaXoq5Y2lFossveZI%3Dpw6rCDilnQCBqNKuK5oCD2RzoF048178HIM4iJNFxpV2Bgzf7M
+
+----------------------
+Email address: girs_x_research@hotmail.com
+Email account password: girs268!
+
+Email for X account: girs_x_research@hotmail.com
+Password for X account: girs2681
+Handle for X account: GirsX17726
+
+GIRS X Research bearer token: AAAAAAAAAAAAAAAAAAAAALLg5QEAAAAA4GAs410f9VQ4KkUySjzETCd7XPk%3DEtgi5LACRWlC9ibqXQB85uyXEUWRD7oKZ7YrfwyN7jbima4Ecd
+------
+Group comments into event phase and subtract ignition time for Eaton Fire from here from timestamps: https://www.cpuc.ca.gov/-/media/cpuc-website/industries-and-topics/documents/wildfire/wildfire-2025/eaton-fire---315-letter.pdf
+	- make histograms / event phases and send to all, along with all comments
